@@ -1,134 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Cars>
   <Car>
-    <ContractNumber>16</ContractNumber>
-    <Brand>OPEL</Brand>
-    <Model>Corsa GSI</Model>
-    <BodyworkType>Hatch</BodyworkType>
-    <HorsePower>150</HorsePower>
-    <FuelType>Petrol</FuelType>
-    <Color>Blue</Color>
-    <ProductionDate>2003</ProductionDate>
-    <Mileage>12399</Mileage>
-    <Price>3999</Price>
-    <AdditionalInfo>----</AdditionalInfo>
-    <EngineVolumeCc>1980</EngineVolumeCc>
-    <Win>FEKMFI3UF3I</Win>
-    <AutoStartStop>Bluetooth , handsfree система</AutoStartStop>
-    <BluetoothHF />
-    <DvdTv>DVD, TV</DvdTv>
-    <SteptronicTiptronic>Bluetooth , handsfree система</SteptronicTiptronic>
-    <USBAudioVideoAUX>USB, audio video, IN AUX изводи</USBAudioVideoAUX>
-    <AdaptiveAirSusp>Адаптивно въздушно окачване</AdaptiveAirSusp>
-    <KeylessGo>Безключово палене</KeylessGo>
-    <DifferentialLock>Блокаж на диференциала</DifferentialLock>
-    <ECU>Бордкомпютър</ECU>
-    <ElMirrors>Ел. Огледала</ElMirrors>
-    <ElWindows>Ел. стъкла</ElWindows>
-    <ElAdjustmentSusp>Ел. регулиране на окачването</ElAdjustmentSusp>
-    <DPFFilter>Филтър за твърди частици</DPFFilter>
-    <CoolingGlovebox>Хладилна жабка</CoolingGlovebox>
-    <Stereo>Стерео уредба</Stereo>
-    <ElAdjustmentSeats>Ел. регулиране на седалките</ElAdjustmentSeats>
-    <ElSteerAmplifier>Ел. усилвател на волана</ElSteerAmplifier>
-    <AirConditioning>Климатик</AirConditioning>
-    <Climatronic>Климатроник</Climatronic>
-    <MultifunctionSteer>Мултифункционален волан</MultifunctionSteer>
-    <Navigation>Навигация</Navigation>
-    <SteeringHeater>Отопление на волана</SteeringHeater>
-    <FrontWindowHeating>Подгряване на предното стъкло</FrontWindowHeating>
-    <Autopilot>Автопилот</Autopilot>
-    <SeatsHeating>Подгряване на седалките</SeatsHeating>
-    <RainSensor>Сензор за дъжд</RainSensor>
-    <SteeringAdjustment>Регулиране на волана</SteeringAdjustment>
-    <ServoSteerAmplifier>Серво усилвател на волана</ServoSteerAmplifier>
-    <HeadlightsWash>Система за измиване на фаровете</HeadlightsWash>
-    <HeatingSys>Печка</HeatingSys>
-  </Car>
-  <Car>
-    <ContractNumber>17</ContractNumber>
-    <Brand>LEXUS</Brand>
-    <Model>IS200</Model>
+    <ContractNumber>25</ContractNumber>
+    <Brand>AUDI</Brand>
+    <Model>A5</Model>
     <BodyworkType>Sedan</BodyworkType>
-    <HorsePower>150</HorsePower>
+    <HorsePower>424</HorsePower>
     <FuelType>Petrol</FuelType>
     <Color>Black</Color>
-    <ProductionDate>2003</ProductionDate>
-    <Mileage>12399</Mileage>
-    <Price>5999</Price>
+    <ProductionDate>2014</ProductionDate>
+    <Mileage>12300</Mileage>
+    <Price>50099</Price>
     <AdditionalInfo>----</AdditionalInfo>
-    <EngineVolumeCc>1989</EngineVolumeCc>
-    <Win>SD23D21D3DG</Win>
-    <AutoStartStop>Bluetooth , handsfree система</AutoStartStop>
-    <BluetoothHF />
-    <DvdTv>DVD, TV</DvdTv>
-    <SteptronicTiptronic>Bluetooth , handsfree система</SteptronicTiptronic>
-    <USBAudioVideoAUX>USB, audio video, IN AUX изводи</USBAudioVideoAUX>
-    <AdaptiveAirSusp>Адаптивно въздушно окачване</AdaptiveAirSusp>
-    <KeylessGo>Безключово палене</KeylessGo>
-    <DifferentialLock>Блокаж на диференциала</DifferentialLock>
-    <ECU>Бордкомпютър</ECU>
-    <ElMirrors>Ел. Огледала</ElMirrors>
-    <ElWindows>Ел. стъкла</ElWindows>
-    <ElAdjustmentSusp>Ел. регулиране на окачването</ElAdjustmentSusp>
-    <DPFFilter>
-    </DPFFilter>
-    <CoolingGlovebox>
-    </CoolingGlovebox>
-    <Stereo>Стерео уредба</Stereo>
-    <ElAdjustmentSeats>Ел. регулиране на седалките</ElAdjustmentSeats>
-    <ElSteerAmplifier>Ел. усилвател на волана</ElSteerAmplifier>
-    <AirConditioning>Климатик</AirConditioning>
-    <Climatronic>Климатроник</Climatronic>
-    <MultifunctionSteer>Мултифункционален волан</MultifunctionSteer>
-    <Navigation>Навигация</Navigation>
-    <SteeringHeater>Отопление на волана</SteeringHeater>
-    <FrontWindowHeating>Подгряване на предното стъкло</FrontWindowHeating>
-    <Autopilot>Автопилот</Autopilot>
-    <SeatsHeating>Подгряване на седалките</SeatsHeating>
-    <RainSensor>Сензор за дъжд</RainSensor>
-    <SteeringAdjustment>
-    </SteeringAdjustment>
-    <ServoSteerAmplifier>Серво усилвател на волана</ServoSteerAmplifier>
-    <HeadlightsWash>
-    </HeadlightsWash>
-    <HeatingSys>
-    </HeatingSys>
-  </Car>
-  <Car>
-    <ContractNumber>19</ContractNumber>
-    <Brand>CITROEN</Brand>
-    <Model>Saxo</Model>
-    <BodyworkType>Hatch</BodyworkType>
-    <HorsePower>75</HorsePower>
-    <FuelType>Petrol</FuelType>
-    <Color>Blue</Color>
-    <ProductionDate>2001</ProductionDate>
-    <Mileage>13999</Mileage>
-    <Price>1999</Price>
-    <AdditionalInfo>----</AdditionalInfo>
-    <EngineVolumeCc>1567</EngineVolumeCc>
-    <Win>FS33I9KF93</Win>
-    <AutoStartStop>Bluetooth , handsfree система</AutoStartStop>
-    <BluetoothHF />
+    <EngineVolumeCc>2423</EngineVolumeCc>
+    <Win>DALD32D2POD23D</Win>
+    <AutoStartStop>
+    </AutoStartStop>
+    <BluetoothHF>
+    </BluetoothHF>
     <DvdTv>
     </DvdTv>
-    <SteptronicTiptronic>Bluetooth , handsfree система</SteptronicTiptronic>
+    <SteptronicTiptronic>
+    </SteptronicTiptronic>
     <USBAudioVideoAUX>
     </USBAudioVideoAUX>
-    <AdaptiveAirSusp>Адаптивно въздушно окачване</AdaptiveAirSusp>
-    <KeylessGo>Безключово палене</KeylessGo>
-    <DifferentialLock>Блокаж на диференциала</DifferentialLock>
+    <AdaptiveAirSusp>
+    </AdaptiveAirSusp>
+    <KeylessGo>
+    </KeylessGo>
+    <DifferentialLock>
+    </DifferentialLock>
     <ECU>
     </ECU>
-    <ElMirrors>Ел. Огледала</ElMirrors>
-    <ElWindows>Ел. стъкла</ElWindows>
-    <ElAdjustmentSusp>Ел. регулиране на окачването</ElAdjustmentSusp>
+    <ElMirrors>
+    </ElMirrors>
+    <ElWindows>
+    </ElWindows>
+    <ElAdjustmentSusp>
+    </ElAdjustmentSusp>
     <DPFFilter>
     </DPFFilter>
     <CoolingGlovebox>
     </CoolingGlovebox>
-    <Stereo>Стерео уредба</Stereo>
+    <Stereo>
+    </Stereo>
     <ElAdjustmentSeats>
     </ElAdjustmentSeats>
     <ElSteerAmplifier>
@@ -159,47 +74,72 @@
     </HeadlightsWash>
     <HeatingSys>
     </HeatingSys>
+    <Extras>Auto start stop function$Bluetooth , handsfree система$DVD, TV$Steptronic, Tiptronic$USB, audio video, IN AUX изводи$Адаптивно въздушно окачване$Безключово палене$Блокаж на диференциала$Бордкомпютър$</Extras>
   </Car>
   <Car>
-    <ContractNumber>25</ContractNumber>
-    <Brand>VW</Brand>
-    <Model>Lupo</Model>
-    <BodyworkType>Hatch</BodyworkType>
-    <HorsePower>55</HorsePower>
+    <ContractNumber>26</ContractNumber>
+    <Brand>BMW</Brand>
+    <Model>320</Model>
+    <BodyworkType>Coupe</BodyworkType>
+    <HorsePower>231</HorsePower>
     <FuelType>Petrol</FuelType>
-    <Color>White</Color>
-    <ProductionDate>2001</ProductionDate>
-    <Mileage>123998</Mileage>
-    <Price>1009 $</Price>
+    <Color>Silver</Color>
+    <ProductionDate>1997</ProductionDate>
+    <Mileage>123989</Mileage>
+    <Price>4999</Price>
     <AdditionalInfo>----</AdditionalInfo>
-    <EngineVolumeCc>883</EngineVolumeCc>
-    <Win>WDSD3</Win>
-    <AutoStartStop>Auto start stop function</AutoStartStop>
-    <BluetoothHF>Bluetooth , handsfree система</BluetoothHF>
-    <DvdTv>DVD, TV</DvdTv>
-    <SteptronicTiptronic>Steptronic, Tiptronic</SteptronicTiptronic>
-    <USBAudioVideoAUX>USB, audio video, IN AUX изводи</USBAudioVideoAUX>
-    <AdaptiveAirSusp>Адаптивно въздушно окачване</AdaptiveAirSusp>
-    <KeylessGo>Безключово палене</KeylessGo>
-    <DifferentialLock>Блокаж на диференциала</DifferentialLock>
-    <ECU>Бордкомпютър</ECU>
-    <ElMirrors>Ел. Огледала</ElMirrors>
-    <ElWindows>Ел. стъкла</ElWindows>
+    <EngineVolumeCc>2987</EngineVolumeCc>
+    <Win>AD21DQ22</Win>
+    <AutoStartStop>
+    </AutoStartStop>
+    <BluetoothHF>
+    </BluetoothHF>
+    <DvdTv>
+    </DvdTv>
+    <SteptronicTiptronic>
+    </SteptronicTiptronic>
+    <USBAudioVideoAUX>
+    </USBAudioVideoAUX>
+    <AdaptiveAirSusp>
+    </AdaptiveAirSusp>
+    <KeylessGo>
+    </KeylessGo>
+    <DifferentialLock>
+    </DifferentialLock>
+    <ECU>
+    </ECU>
+    <ElMirrors>
+    </ElMirrors>
+    <ElWindows>
+    </ElWindows>
     <ElAdjustmentSusp>Ел. регулиране на окачването</ElAdjustmentSusp>
     <DPFFilter>Филтър за твърди частици</DPFFilter>
-    <CoolingGlovebox>Хладилна жабка</CoolingGlovebox>
-    <Stereo>Стерео уредба</Stereo>
-    <ElAdjustmentSeats>Ел. регулиране на седалките</ElAdjustmentSeats>
-    <ElSteerAmplifier>Ел. усилвател на волана</ElSteerAmplifier>
-    <AirConditioning>Климатик</AirConditioning>
-    <Climatronic>Климатроник</Climatronic>
-    <MultifunctionSteer>Мултифункционален волан</MultifunctionSteer>
-    <Navigation>Навигация</Navigation>
-    <SteeringHeater>Отопление на волана</SteeringHeater>
-    <FrontWindowHeating>Подгряване на предното стъкло</FrontWindowHeating>
-    <Autopilot>Автопилот</Autopilot>
-    <SeatsHeating>Подгряване на седалките</SeatsHeating>
-    <RainSensor>Сензор за дъжд</RainSensor>
+    <CoolingGlovebox>
+    </CoolingGlovebox>
+    <Stereo>
+    </Stereo>
+    <ElAdjustmentSeats>
+    </ElAdjustmentSeats>
+    <ElSteerAmplifier>
+    </ElSteerAmplifier>
+    <AirConditioning>
+    </AirConditioning>
+    <Climatronic>
+    </Climatronic>
+    <MultifunctionSteer>
+    </MultifunctionSteer>
+    <Navigation>
+    </Navigation>
+    <SteeringHeater>
+    </SteeringHeater>
+    <FrontWindowHeating>
+    </FrontWindowHeating>
+    <Autopilot>
+    </Autopilot>
+    <SeatsHeating>
+    </SeatsHeating>
+    <RainSensor>
+    </RainSensor>
     <SteeringAdjustment>
     </SteeringAdjustment>
     <ServoSteerAmplifier>
@@ -208,5 +148,234 @@
     </HeadlightsWash>
     <HeatingSys>
     </HeatingSys>
+    <Extras>Auto start stop function$Bluetooth , handsfree система$DVD, TV$Steptronic, Tiptronic$USB, audio video, IN AUX изводи$Адаптивно въздушно окачване$Безключово палене$Блокаж на диференциала$Ел. Огледала$</Extras>
+  </Car>
+  <Car>
+    <ContractNumber>27</ContractNumber>
+    <Brand>HONDA</Brand>
+    <Model>Civic</Model>
+    <BodyworkType>Hatch</BodyworkType>
+    <HorsePower>200</HorsePower>
+    <FuelType>Petrol</FuelType>
+    <Color>Red</Color>
+    <ProductionDate>2016</ProductionDate>
+    <Mileage>1239</Mileage>
+    <Price>59999</Price>
+    <AdditionalInfo>----</AdditionalInfo>
+    <EngineVolumeCc>1987</EngineVolumeCc>
+    <Win>FI34MF34</Win>
+    <AutoStartStop>
+    </AutoStartStop>
+    <BluetoothHF>
+    </BluetoothHF>
+    <DvdTv>
+    </DvdTv>
+    <SteptronicTiptronic>
+    </SteptronicTiptronic>
+    <USBAudioVideoAUX>
+    </USBAudioVideoAUX>
+    <AdaptiveAirSusp>
+    </AdaptiveAirSusp>
+    <KeylessGo>
+    </KeylessGo>
+    <DifferentialLock>
+    </DifferentialLock>
+    <ECU>
+    </ECU>
+    <ElMirrors>
+    </ElMirrors>
+    <ElWindows>
+    </ElWindows>
+    <ElAdjustmentSusp>
+    </ElAdjustmentSusp>
+    <DPFFilter>
+    </DPFFilter>
+    <CoolingGlovebox>
+    </CoolingGlovebox>
+    <Stereo>
+    </Stereo>
+    <ElAdjustmentSeats>
+    </ElAdjustmentSeats>
+    <ElSteerAmplifier>
+    </ElSteerAmplifier>
+    <AirConditioning>
+    </AirConditioning>
+    <Climatronic>
+    </Climatronic>
+    <MultifunctionSteer>
+    </MultifunctionSteer>
+    <Navigation>
+    </Navigation>
+    <SteeringHeater>
+    </SteeringHeater>
+    <FrontWindowHeating>
+    </FrontWindowHeating>
+    <Autopilot>
+    </Autopilot>
+    <SeatsHeating>
+    </SeatsHeating>
+    <RainSensor>
+    </RainSensor>
+    <SteeringAdjustment>
+    </SteeringAdjustment>
+    <ServoSteerAmplifier>
+    </ServoSteerAmplifier>
+    <HeadlightsWash>
+    </HeadlightsWash>
+    <HeatingSys>
+    </HeatingSys>
+    <Extras>Auto start stop function$Bluetooth , handsfree система$DVD, TV$Steptronic, Tiptronic$USB, audio video, IN AUX изводи$Безключово палене$Блокаж на диференциала$Бордкомпютър$Ел. Огледала$Ел.стъкла$Ел. регулиране на окачването$Филтър за твърди частици$Хладилна жабка$Стерео уредба$Ел. усилвател на волана$Климатик$Климатроник$Мултифункционален волан$Подгряване на предното стъкло$Автопилот$Подгряване на седалките$Сензор за дъжд$Регулиране на волана$Серво усилвател на волана$Система за измиване на фаровете$</Extras>
+  </Car>
+  <Car>
+    <ContractNumber>29</ContractNumber>
+    <Brand>TOYOTA</Brand>
+    <Model>Corolla</Model>
+    <BodyworkType>Hatch</BodyworkType>
+    <HorsePower>300</HorsePower>
+    <FuelType>Petrol</FuelType>
+    <Color>Gray</Color>
+    <ProductionDate>1239</ProductionDate>
+    <Mileage>234234</Mileage>
+    <Price>2323</Price>
+    <AdditionalInfo>----</AdditionalInfo>
+    <EngineVolumeCc>2983</EngineVolumeCc>
+    <Win>3D23</Win>
+    <AutoStartStop>
+    </AutoStartStop>
+    <BluetoothHF>
+    </BluetoothHF>
+    <DvdTv>
+    </DvdTv>
+    <SteptronicTiptronic>
+    </SteptronicTiptronic>
+    <USBAudioVideoAUX>
+    </USBAudioVideoAUX>
+    <AdaptiveAirSusp>
+    </AdaptiveAirSusp>
+    <KeylessGo>
+    </KeylessGo>
+    <DifferentialLock>
+    </DifferentialLock>
+    <ECU>
+    </ECU>
+    <ElMirrors>
+    </ElMirrors>
+    <ElWindows>
+    </ElWindows>
+    <ElAdjustmentSusp>
+    </ElAdjustmentSusp>
+    <DPFFilter>
+    </DPFFilter>
+    <CoolingGlovebox>
+    </CoolingGlovebox>
+    <Stereo>
+    </Stereo>
+    <ElAdjustmentSeats>
+    </ElAdjustmentSeats>
+    <ElSteerAmplifier>
+    </ElSteerAmplifier>
+    <AirConditioning>
+    </AirConditioning>
+    <Climatronic>
+    </Climatronic>
+    <MultifunctionSteer>
+    </MultifunctionSteer>
+    <Navigation>
+    </Navigation>
+    <SteeringHeater>
+    </SteeringHeater>
+    <FrontWindowHeating>
+    </FrontWindowHeating>
+    <Autopilot>
+    </Autopilot>
+    <SeatsHeating>
+    </SeatsHeating>
+    <RainSensor>
+    </RainSensor>
+    <SteeringAdjustment>
+    </SteeringAdjustment>
+    <ServoSteerAmplifier>
+    </ServoSteerAmplifier>
+    <HeadlightsWash>
+    </HeadlightsWash>
+    <HeatingSys>
+    </HeatingSys>
+    <Extras>Auto start stop function$Bluetooth , handsfree система$DVD, TV$Steptronic, Tiptronic$USB, audio video, IN AUX изводи$Адаптивно въздушно окачване$Бордкомпютър$Ел. Огледала$Ел.стъкла$Ел. регулиране на окачването$Филтър за твърди частици$Хладилна жабка$Стерео уредба$</Extras>
+  </Car>
+  <Car>
+    <ContractNumber>30</ContractNumber>
+    <Brand>HYUNDAI</Brand>
+    <Model>ix30</Model>
+    <BodyworkType>SUV</BodyworkType>
+    <HorsePower>2423</HorsePower>
+    <FuelType>w3f23fqf3f</FuelType>
+    <Color>F</Color>
+    <ProductionDate>3f</ProductionDate>
+    <Mileage>3</Mileage>
+    <Price>0</Price>
+    <AdditionalInfo>f3</AdditionalInfo>
+    <EngineVolumeCc>2938</EngineVolumeCc>
+    <Win>F3</Win>
+    <AutoStartStop>
+    </AutoStartStop>
+    <BluetoothHF>
+    </BluetoothHF>
+    <DvdTv>
+    </DvdTv>
+    <SteptronicTiptronic>
+    </SteptronicTiptronic>
+    <USBAudioVideoAUX>
+    </USBAudioVideoAUX>
+    <AdaptiveAirSusp>
+    </AdaptiveAirSusp>
+    <KeylessGo>
+    </KeylessGo>
+    <DifferentialLock>
+    </DifferentialLock>
+    <ECU>
+    </ECU>
+    <ElMirrors>
+    </ElMirrors>
+    <ElWindows>
+    </ElWindows>
+    <ElAdjustmentSusp>
+    </ElAdjustmentSusp>
+    <DPFFilter>
+    </DPFFilter>
+    <CoolingGlovebox>
+    </CoolingGlovebox>
+    <Stereo>
+    </Stereo>
+    <ElAdjustmentSeats>
+    </ElAdjustmentSeats>
+    <ElSteerAmplifier>
+    </ElSteerAmplifier>
+    <AirConditioning>
+    </AirConditioning>
+    <Climatronic>
+    </Climatronic>
+    <MultifunctionSteer>
+    </MultifunctionSteer>
+    <Navigation>
+    </Navigation>
+    <SteeringHeater>
+    </SteeringHeater>
+    <FrontWindowHeating>
+    </FrontWindowHeating>
+    <Autopilot>
+    </Autopilot>
+    <SeatsHeating>
+    </SeatsHeating>
+    <RainSensor>
+    </RainSensor>
+    <SteeringAdjustment>
+    </SteeringAdjustment>
+    <ServoSteerAmplifier>
+    </ServoSteerAmplifier>
+    <HeadlightsWash>
+    </HeadlightsWash>
+    <HeatingSys>
+    </HeatingSys>
+    <Extras>Auto start stop function$Bluetooth , handsfree система$DVD, TV$Steptronic, Tiptronic$USB, audio video, IN AUX изводи$Адаптивно въздушно окачване$Безключово палене$Блокаж на диференциала$Бордкомпютър$Ел. Огледала$Ел.стъкла$Ел. регулиране на окачването$Филтър за твърди частици$Хладилна жабка$Стерео уредба$Ел. регулиране на седалките$Климатик$Климатроник$Отопление на волана$Подгряване на предното стъкло$Автопилот$Подгряване на седалките$Сензор за дъжд$Регулиране на волана$Система за измиване на фаровете$</Extras>
   </Car>
 </Cars>

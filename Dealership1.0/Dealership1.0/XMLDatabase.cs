@@ -12,12 +12,12 @@ namespace Dealership1._0
     {
         private static XmlSerializer seriliazer = new XmlSerializer(typeof(Car));
 
-        public static void AppednToXML(Car carToAdd)        // CHECKED
+        public static void AppendDataToXML(Car carToAdd)        // CHECKED
         {
 
             //file name
-            string filename = "C:\\Users\\krisi\\Documents\\Visual Studio 2015\\Projects\\Dealership1.0\\Dealership1.0\\bin\\Debug\\data.xml";
-
+            //string filename = "C:\\Users\\krisi\\Documents\\Visual Studio 2015\\Projects\\Dealership1.0\\Dealership1.0\\bin\\Debug\\data.xml";
+            string filename = "data.xml";
             //create new instance of XmlDocument
             XmlDocument doc = new XmlDocument();
 
@@ -34,66 +34,66 @@ namespace Dealership1._0
             headNode.AppendChild(contractNumNode);
 
             XmlNode nodeTitle = doc.CreateElement("Brand");
-            nodeTitle.InnerText = carToAdd.Brand ;
+            nodeTitle.InnerText = carToAdd.Brand;
             headNode.AppendChild(nodeTitle);
 
             //create model node and add
             XmlNode modelNode = doc.CreateElement("Model");
-            modelNode.InnerText = carToAdd.Model; 
+            modelNode.InnerText = carToAdd.Model;
             headNode.AppendChild(modelNode);
 
             //create bodytype node and add
             XmlNode bodyNode = doc.CreateElement("BodyworkType");
-            bodyNode.InnerText = carToAdd.BodyworkType ;
+            bodyNode.InnerText = carToAdd.BodyworkType;
             headNode.AppendChild(bodyNode);
 
             XmlNode horsePowerNode = doc.CreateElement("HorsePower");
-            horsePowerNode.InnerText = carToAdd.HorsePower ;
+            horsePowerNode.InnerText = carToAdd.HorsePower;
             headNode.AppendChild(horsePowerNode);
 
             XmlNode fuelTypeNode = doc.CreateElement("FuelType");
-            fuelTypeNode.InnerText = carToAdd.FuelType ;
+            fuelTypeNode.InnerText = carToAdd.FuelType;
             headNode.AppendChild(fuelTypeNode);
             //todo the same for every car prop !
 
             XmlNode colorNode = doc.CreateElement("Color");
-            colorNode.InnerText = carToAdd.Color ;
+            colorNode.InnerText = carToAdd.Color;
             headNode.AppendChild(colorNode);
 
             XmlNode productionDateNode = doc.CreateElement("ProductionDate");
-            productionDateNode.InnerText = carToAdd.ProductionDate ;
+            productionDateNode.InnerText = carToAdd.ProductionDate;
             headNode.AppendChild(productionDateNode);
 
             XmlNode mileageNode = doc.CreateElement("Mileage");
-            mileageNode.InnerText = carToAdd.Mileage ;
+            mileageNode.InnerText = carToAdd.Mileage;
             headNode.AppendChild(mileageNode);
 
             XmlNode priceNode = doc.CreateElement("Price");
-            priceNode.InnerText = carToAdd.Price ;
+            priceNode.InnerText = carToAdd.Price;
             headNode.AppendChild(priceNode);
 
             XmlNode addictionalInfoNode = doc.CreateElement("AdditionalInfo");
-            addictionalInfoNode.InnerText = carToAdd.AdditionalInfo ;
+            addictionalInfoNode.InnerText = carToAdd.AdditionalInfo;
             headNode.AppendChild(addictionalInfoNode);
 
             XmlNode engineVolumeNode = doc.CreateElement("EngineVolumeCc");
-            engineVolumeNode.InnerText = carToAdd.EngineVolumeCc ;
+            engineVolumeNode.InnerText = carToAdd.EngineVolumeCc;
             headNode.AppendChild(engineVolumeNode);
 
             XmlNode WINNode = doc.CreateElement("Win");
-            WINNode.InnerText = carToAdd.Win ;
+            WINNode.InnerText = carToAdd.Win;
             headNode.AppendChild(WINNode);
 
             XmlNode AutoStartStopNode = doc.CreateElement("AutoStartStop");
-            AutoStartStopNode.InnerText = carToAdd.AutoStartStop ;
+            AutoStartStopNode.InnerText = carToAdd.AutoStartStop;
             headNode.AppendChild(AutoStartStopNode);
 
             XmlNode BluetoothHFNode = doc.CreateElement("BluetoothHF");
-            BluetoothHFNode.InnerText = carToAdd.BluetoothHF ;
+            BluetoothHFNode.InnerText = carToAdd.BluetoothHF;
             headNode.AppendChild(BluetoothHFNode);
 
             XmlNode DvdTvNode = doc.CreateElement("DvdTv");
-            DvdTvNode.InnerText = carToAdd.DvdTv ;
+            DvdTvNode.InnerText = carToAdd.DvdTv;
             headNode.AppendChild(DvdTvNode);
 
             XmlNode SteptronicTiptronicNode = doc.CreateElement("SteptronicTiptronic");
@@ -101,7 +101,7 @@ namespace Dealership1._0
             headNode.AppendChild(SteptronicTiptronicNode);
 
             XmlNode USBAudioVideoAUXNode = doc.CreateElement("USBAudioVideoAUX");
-            USBAudioVideoAUXNode.InnerText = carToAdd.USBAudioVideoAUX ;
+            USBAudioVideoAUXNode.InnerText = carToAdd.USBAudioVideoAUX;
             headNode.AppendChild(USBAudioVideoAUXNode);
 
             XmlNode AdaptiveAirSuspNode = doc.CreateElement("AdaptiveAirSusp");
@@ -203,8 +203,12 @@ namespace Dealership1._0
 
             XmlNode HeatingSysNode = doc.CreateElement("HeatingSys");
             HeatingSysNode.InnerText = carToAdd.HeatingSys;
-
             headNode.AppendChild(HeatingSysNode);
+
+            XmlNode extrasNode = doc.CreateElement("Extras");
+            extrasNode.InnerText = carToAdd.Extras.ToString();
+            headNode.AppendChild(extrasNode);
+
 
             //add to elements collection
             doc.DocumentElement.AppendChild(headNode);
@@ -216,7 +220,7 @@ namespace Dealership1._0
 
         }
 
-        public static List<Car> LoadXMLDatabase() //CHECKED ! WORKS FINE
+        public static List<Car> Load() //CHECKED ! WORKS FINE
         {
             List<Car> xmlCarList = new List<Car>();
             XDocument xDoc = XDocument.Load("data.xml");
@@ -270,25 +274,14 @@ namespace Dealership1._0
                     SteeringAdjustment = d.Element("SteeringAdjustment").Value,
                     ServoSteerAmplifier = d.Element("ServoSteerAmplifier").Value,
                     HeadlightsWash = d.Element("HeadlightsWash").Value,
-                    HeatingSys = d.Element("HeatingSys").Value
+                    HeatingSys = d.Element("HeatingSys").Value,
+                    Extras = d.Element("Extras").Value
                 }).ToList();
 
             return xmlCarList;
 
         }
-        //private void DeserializeXMLDatabase()//dont work hierarchy problem
-        //{
-        //    if (!File.Exists("data.xml"))
-        //    {
-        //        XmlSerializer xSerializer = new XmlSerializer(typeof(Car));
-        //        using (FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
-        //        {
-        //            Car xmlCar = (Car)xSerializer.Deserialize(read);
-        //            dieler.CarsList.Add(xmlCar);
-        //        }
-        //    }
-
-        //}
+        
         public static void Remove(object car)
         {
             if (car != null)

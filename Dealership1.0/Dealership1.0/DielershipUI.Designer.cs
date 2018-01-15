@@ -53,7 +53,6 @@
             this.mileageTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.soldButton = new System.Windows.Forms.Button();
-            this.clearSoldCarsButton = new System.Windows.Forms.Button();
             this.additionalCarInfoTextBox = new System.Windows.Forms.TextBox();
             this.ContractNumberLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,7 +63,7 @@
             this.addButton = new System.Windows.Forms.Button();
             this.ProfitLabel = new System.Windows.Forms.Label();
             this.ResetProfitLabelButton = new System.Windows.Forms.Button();
-            this.ComfortGroupBox = new System.Windows.Forms.GroupBox();
+            this.ComfortExtrasGroupBox = new System.Windows.Forms.GroupBox();
             this.HeatingSysCheckbox = new System.Windows.Forms.CheckBox();
             this.CoolingGloveboxCheckbox = new System.Windows.Forms.CheckBox();
             this.DPFFilterCheckbox = new System.Windows.Forms.CheckBox();
@@ -95,8 +94,8 @@
             this.DvdTvCheckbox = new System.Windows.Forms.CheckBox();
             this.BluetoothHFCheckbox = new System.Windows.Forms.CheckBox();
             this.AutoStartStopCheckBox = new System.Windows.Forms.CheckBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.inStockCheckbox = new System.Windows.Forms.CheckBox();
+            this.OthersExtrasGroupBox = new System.Windows.Forms.GroupBox();
+            this.InStockCheckbox = new System.Windows.Forms.CheckBox();
             this.LeasingCheckbox = new System.Windows.Forms.CheckBox();
             this.MethanSysCheckbox = new System.Windows.Forms.CheckBox();
             this.NewImportCheckbox = new System.Windows.Forms.CheckBox();
@@ -108,9 +107,9 @@
             this.RegisteredCheckbox = new System.Windows.Forms.CheckBox();
             this.BarterCheckbox = new System.Windows.Forms.CheckBox();
             this.FourWheelDriveCheckbox = new System.Windows.Forms.CheckBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ExteriorExtrasGroupbox = new System.Windows.Forms.GroupBox();
             this.MetallicCheckbox = new System.Windows.Forms.CheckBox();
-            this.FourOfFiveDoorsCheckbox = new System.Windows.Forms.CheckBox();
+            this.FourOrFiveDoorsCheckbox = new System.Windows.Forms.CheckBox();
             this.HeatingWipesCheckbox = new System.Windows.Forms.CheckBox();
             this.XenonHeadlightsCheckbox = new System.Windows.Forms.CheckBox();
             this.SpoilerCheckbox = new System.Windows.Forms.CheckBox();
@@ -119,9 +118,9 @@
             this.LedHeadlightsCheckbox = new System.Windows.Forms.CheckBox();
             this.DrawbarCheckbox = new System.Windows.Forms.CheckBox();
             this.HalogenLightsCheckbox = new System.Windows.Forms.CheckBox();
-            this.TwoOfThreeDoorsCheckbox = new System.Windows.Forms.CheckBox();
+            this.TwoOrThreeDoorsCheckbox = new System.Windows.Forms.CheckBox();
             this.ShuttleCheckbox = new System.Windows.Forms.CheckBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.SafetyExtrasGroupbox = new System.Windows.Forms.GroupBox();
             this.DSACheckbox = new System.Windows.Forms.CheckBox();
             this.DistronicCheckbox = new System.Windows.Forms.CheckBox();
             this.DryBrakeSysCheckbox = new System.Windows.Forms.CheckBox();
@@ -136,10 +135,10 @@
             this.ASCCheckbox = new System.Windows.Forms.CheckBox();
             this.AdaptiveFrontLightsCheckbox = new System.Windows.Forms.CheckBox();
             this.GPSCheckbox = new System.Windows.Forms.CheckBox();
-            this.ComfortGroupBox.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.ComfortExtrasGroupBox.SuspendLayout();
+            this.OthersExtrasGroupBox.SuspendLayout();
+            this.ExteriorExtrasGroupbox.SuspendLayout();
+            this.SafetyExtrasGroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // carsListLabel
@@ -148,7 +147,7 @@
             this.carsListLabel.BackColor = System.Drawing.Color.Transparent;
             this.carsListLabel.Font = new System.Drawing.Font("Niagara Solid", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.carsListLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.carsListLabel.Location = new System.Drawing.Point(10, 28);
+            this.carsListLabel.Location = new System.Drawing.Point(10, 32);
             this.carsListLabel.Name = "carsListLabel";
             this.carsListLabel.Size = new System.Drawing.Size(80, 34);
             this.carsListLabel.TabIndex = 0;
@@ -162,7 +161,7 @@
             this.carsListBox.ForeColor = System.Drawing.Color.White;
             this.carsListBox.FormattingEnabled = true;
             this.carsListBox.ItemHeight = 19;
-            this.carsListBox.Location = new System.Drawing.Point(16, 63);
+            this.carsListBox.Location = new System.Drawing.Point(16, 68);
             this.carsListBox.Name = "carsListBox";
             this.carsListBox.Size = new System.Drawing.Size(274, 610);
             this.carsListBox.TabIndex = 33;
@@ -438,22 +437,6 @@
             this.soldButton.UseVisualStyleBackColor = false;
             this.soldButton.Click += new System.EventHandler(this.soldButton_Click);
             // 
-            // clearSoldCarsButton
-            // 
-            this.clearSoldCarsButton.BackColor = System.Drawing.Color.Transparent;
-            this.clearSoldCarsButton.FlatAppearance.BorderSize = 0;
-            this.clearSoldCarsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearSoldCarsButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.clearSoldCarsButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.clearSoldCarsButton.Location = new System.Drawing.Point(1144, 544);
-            this.clearSoldCarsButton.Name = "clearSoldCarsButton";
-            this.clearSoldCarsButton.Size = new System.Drawing.Size(75, 36);
-            this.clearSoldCarsButton.TabIndex = 27;
-            this.clearSoldCarsButton.Text = "Clear";
-            this.clearSoldCarsButton.UseVisualStyleBackColor = false;
-            this.clearSoldCarsButton.Visible = false;
-            this.clearSoldCarsButton.Click += new System.EventHandler(this.clearSoldCarsButton_Click);
-            // 
             // additionalCarInfoTextBox
             // 
             this.additionalCarInfoTextBox.BackColor = System.Drawing.Color.Black;
@@ -551,7 +534,7 @@
             this.addButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.addButton.ForeColor = System.Drawing.SystemColors.Window;
             this.addButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addButton.Location = new System.Drawing.Point(306, 382);
+            this.addButton.Location = new System.Drawing.Point(306, 344);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(193, 43);
             this.addButton.TabIndex = 17;
@@ -587,46 +570,46 @@
             this.ResetProfitLabelButton.UseVisualStyleBackColor = false;
             this.ResetProfitLabelButton.Click += new System.EventHandler(this.ResetProfitLabelButton_Click);
             // 
-            // ComfortGroupBox
+            // ComfortExtrasGroupBox
             // 
-            this.ComfortGroupBox.Controls.Add(this.HeatingSysCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.CoolingGloveboxCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.DPFFilterCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.StereoCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.HeadlightsWashCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.AutopilotCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ServoSteerAmplifierCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.SteeringAdjustmentCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.SeatsHeatingCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.RainSensorCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.FrontWindowHeatingCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.NavigationCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.SteeringHeaterCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.MultifunctionSteerCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ClimatronicCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ElSteerAmplifierCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.AirConditioningCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ElAdjustmentSeatsCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ElAdjustmentSuspCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ElMirrorsCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ElWindowsCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.ECUCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.DifferentialLockCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.AdaptiveAirSuspCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.KeylessGoCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.USBAudioVideoAUXCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.SteptronicTiptronicCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.DvdTvCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.BluetoothHFCheckbox);
-            this.ComfortGroupBox.Controls.Add(this.AutoStartStopCheckBox);
-            this.ComfortGroupBox.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComfortGroupBox.ForeColor = System.Drawing.SystemColors.Window;
-            this.ComfortGroupBox.Location = new System.Drawing.Point(526, 70);
-            this.ComfortGroupBox.Name = "ComfortGroupBox";
-            this.ComfortGroupBox.Size = new System.Drawing.Size(518, 383);
-            this.ComfortGroupBox.TabIndex = 13;
-            this.ComfortGroupBox.TabStop = false;
-            this.ComfortGroupBox.Text = "COMFORT";
+            this.ComfortExtrasGroupBox.Controls.Add(this.HeatingSysCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.CoolingGloveboxCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.DPFFilterCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.StereoCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.HeadlightsWashCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.AutopilotCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ServoSteerAmplifierCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.SteeringAdjustmentCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.SeatsHeatingCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.RainSensorCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.FrontWindowHeatingCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.NavigationCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.SteeringHeaterCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.MultifunctionSteerCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ClimatronicCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ElSteerAmplifierCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.AirConditioningCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ElAdjustmentSeatsCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ElAdjustmentSuspCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ElMirrorsCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ElWindowsCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.ECUCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.DifferentialLockCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.AdaptiveAirSuspCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.KeylessGoCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.USBAudioVideoAUXCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.SteptronicTiptronicCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.DvdTvCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.BluetoothHFCheckbox);
+            this.ComfortExtrasGroupBox.Controls.Add(this.AutoStartStopCheckBox);
+            this.ComfortExtrasGroupBox.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComfortExtrasGroupBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.ComfortExtrasGroupBox.Location = new System.Drawing.Point(526, 70);
+            this.ComfortExtrasGroupBox.Name = "ComfortExtrasGroupBox";
+            this.ComfortExtrasGroupBox.Size = new System.Drawing.Size(518, 383);
+            this.ComfortExtrasGroupBox.TabIndex = 13;
+            this.ComfortExtrasGroupBox.TabStop = false;
+            this.ComfortExtrasGroupBox.Text = "COMFORT";
             // 
             // HeatingSysCheckbox
             // 
@@ -1015,41 +998,41 @@
             this.AutoStartStopCheckBox.Text = "Auto Start Stop function";
             this.AutoStartStopCheckBox.UseVisualStyleBackColor = false;
             // 
-            // groupBox2
+            // OthersExtrasGroupBox
             // 
-            this.groupBox2.Controls.Add(this.inStockCheckbox);
-            this.groupBox2.Controls.Add(this.LeasingCheckbox);
-            this.groupBox2.Controls.Add(this.MethanSysCheckbox);
-            this.groupBox2.Controls.Add(this.NewImportCheckbox);
-            this.groupBox2.Controls.Add(this.SevenSeatsCheckbox);
-            this.groupBox2.Controls.Add(this.ServiceBookCheckbox);
-            this.groupBox2.Controls.Add(this.AutoGasSysCheckbox);
-            this.groupBox2.Controls.Add(this.TuningCheckbox);
-            this.groupBox2.Controls.Add(this.FullServicedCheckbox);
-            this.groupBox2.Controls.Add(this.RegisteredCheckbox);
-            this.groupBox2.Controls.Add(this.BarterCheckbox);
-            this.groupBox2.Controls.Add(this.FourWheelDriveCheckbox);
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.Window;
-            this.groupBox2.Location = new System.Drawing.Point(296, 501);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(338, 177);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "OTHERS";
+            this.OthersExtrasGroupBox.Controls.Add(this.InStockCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.LeasingCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.MethanSysCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.NewImportCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.SevenSeatsCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.ServiceBookCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.AutoGasSysCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.TuningCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.FullServicedCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.RegisteredCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.BarterCheckbox);
+            this.OthersExtrasGroupBox.Controls.Add(this.FourWheelDriveCheckbox);
+            this.OthersExtrasGroupBox.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OthersExtrasGroupBox.ForeColor = System.Drawing.SystemColors.Window;
+            this.OthersExtrasGroupBox.Location = new System.Drawing.Point(296, 501);
+            this.OthersExtrasGroupBox.Name = "OthersExtrasGroupBox";
+            this.OthersExtrasGroupBox.Size = new System.Drawing.Size(338, 177);
+            this.OthersExtrasGroupBox.TabIndex = 14;
+            this.OthersExtrasGroupBox.TabStop = false;
+            this.OthersExtrasGroupBox.Text = "OTHERS";
             // 
-            // inStockCheckbox
+            // InStockCheckbox
             // 
-            this.inStockCheckbox.AutoSize = true;
-            this.inStockCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.inStockCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inStockCheckbox.ForeColor = System.Drawing.SystemColors.Window;
-            this.inStockCheckbox.Location = new System.Drawing.Point(225, 146);
-            this.inStockCheckbox.Name = "inStockCheckbox";
-            this.inStockCheckbox.Size = new System.Drawing.Size(69, 17);
-            this.inStockCheckbox.TabIndex = 11;
-            this.inStockCheckbox.Text = "Налична";
-            this.inStockCheckbox.UseVisualStyleBackColor = false;
+            this.InStockCheckbox.AutoSize = true;
+            this.InStockCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.InStockCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InStockCheckbox.ForeColor = System.Drawing.SystemColors.Window;
+            this.InStockCheckbox.Location = new System.Drawing.Point(225, 146);
+            this.InStockCheckbox.Name = "InStockCheckbox";
+            this.InStockCheckbox.Size = new System.Drawing.Size(69, 17);
+            this.InStockCheckbox.TabIndex = 11;
+            this.InStockCheckbox.Text = "Налична";
+            this.InStockCheckbox.UseVisualStyleBackColor = false;
             // 
             // LeasingCheckbox
             // 
@@ -1194,28 +1177,28 @@
             this.FourWheelDriveCheckbox.Text = "4x4";
             this.FourWheelDriveCheckbox.UseVisualStyleBackColor = false;
             // 
-            // groupBox3
+            // ExteriorExtrasGroupbox
             // 
-            this.groupBox3.Controls.Add(this.MetallicCheckbox);
-            this.groupBox3.Controls.Add(this.FourOfFiveDoorsCheckbox);
-            this.groupBox3.Controls.Add(this.HeatingWipesCheckbox);
-            this.groupBox3.Controls.Add(this.XenonHeadlightsCheckbox);
-            this.groupBox3.Controls.Add(this.SpoilerCheckbox);
-            this.groupBox3.Controls.Add(this.AlluminRimsCheckbox);
-            this.groupBox3.Controls.Add(this.PanoramicHatchCheckbox);
-            this.groupBox3.Controls.Add(this.LedHeadlightsCheckbox);
-            this.groupBox3.Controls.Add(this.DrawbarCheckbox);
-            this.groupBox3.Controls.Add(this.HalogenLightsCheckbox);
-            this.groupBox3.Controls.Add(this.TwoOfThreeDoorsCheckbox);
-            this.groupBox3.Controls.Add(this.ShuttleCheckbox);
-            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.Window;
-            this.groupBox3.Location = new System.Drawing.Point(648, 501);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(324, 175);
-            this.groupBox3.TabIndex = 15;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "EXTERIOR";
+            this.ExteriorExtrasGroupbox.Controls.Add(this.MetallicCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.FourOrFiveDoorsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.HeatingWipesCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.XenonHeadlightsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.SpoilerCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.AlluminRimsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.PanoramicHatchCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.LedHeadlightsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.DrawbarCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.HalogenLightsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.TwoOrThreeDoorsCheckbox);
+            this.ExteriorExtrasGroupbox.Controls.Add(this.ShuttleCheckbox);
+            this.ExteriorExtrasGroupbox.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExteriorExtrasGroupbox.ForeColor = System.Drawing.SystemColors.Window;
+            this.ExteriorExtrasGroupbox.Location = new System.Drawing.Point(648, 501);
+            this.ExteriorExtrasGroupbox.Name = "ExteriorExtrasGroupbox";
+            this.ExteriorExtrasGroupbox.Size = new System.Drawing.Size(324, 175);
+            this.ExteriorExtrasGroupbox.TabIndex = 15;
+            this.ExteriorExtrasGroupbox.TabStop = false;
+            this.ExteriorExtrasGroupbox.Text = "EXTERIOR";
             // 
             // MetallicCheckbox
             // 
@@ -1230,18 +1213,18 @@
             this.MetallicCheckbox.Text = "Металик";
             this.MetallicCheckbox.UseVisualStyleBackColor = false;
             // 
-            // FourOfFiveDoorsCheckbox
+            // FourOrFiveDoorsCheckbox
             // 
-            this.FourOfFiveDoorsCheckbox.AutoSize = true;
-            this.FourOfFiveDoorsCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.FourOfFiveDoorsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FourOfFiveDoorsCheckbox.ForeColor = System.Drawing.SystemColors.Window;
-            this.FourOfFiveDoorsCheckbox.Location = new System.Drawing.Point(16, 54);
-            this.FourOfFiveDoorsCheckbox.Name = "FourOfFiveDoorsCheckbox";
-            this.FourOfFiveDoorsCheckbox.Size = new System.Drawing.Size(77, 17);
-            this.FourOfFiveDoorsCheckbox.TabIndex = 1;
-            this.FourOfFiveDoorsCheckbox.Text = "4(5) Врати";
-            this.FourOfFiveDoorsCheckbox.UseVisualStyleBackColor = false;
+            this.FourOrFiveDoorsCheckbox.AutoSize = true;
+            this.FourOrFiveDoorsCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.FourOrFiveDoorsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FourOrFiveDoorsCheckbox.ForeColor = System.Drawing.SystemColors.Window;
+            this.FourOrFiveDoorsCheckbox.Location = new System.Drawing.Point(16, 54);
+            this.FourOrFiveDoorsCheckbox.Name = "FourOrFiveDoorsCheckbox";
+            this.FourOrFiveDoorsCheckbox.Size = new System.Drawing.Size(77, 17);
+            this.FourOrFiveDoorsCheckbox.TabIndex = 1;
+            this.FourOrFiveDoorsCheckbox.Text = "4(5) Врати";
+            this.FourOrFiveDoorsCheckbox.UseVisualStyleBackColor = false;
             // 
             // HeatingWipesCheckbox
             // 
@@ -1347,18 +1330,18 @@
             this.HalogenLightsCheckbox.Text = "Халогенни фарове";
             this.HalogenLightsCheckbox.UseVisualStyleBackColor = false;
             // 
-            // TwoOfThreeDoorsCheckbox
+            // TwoOrThreeDoorsCheckbox
             // 
-            this.TwoOfThreeDoorsCheckbox.AutoSize = true;
-            this.TwoOfThreeDoorsCheckbox.BackColor = System.Drawing.Color.Transparent;
-            this.TwoOfThreeDoorsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TwoOfThreeDoorsCheckbox.ForeColor = System.Drawing.SystemColors.Window;
-            this.TwoOfThreeDoorsCheckbox.Location = new System.Drawing.Point(16, 31);
-            this.TwoOfThreeDoorsCheckbox.Name = "TwoOfThreeDoorsCheckbox";
-            this.TwoOfThreeDoorsCheckbox.Size = new System.Drawing.Size(77, 17);
-            this.TwoOfThreeDoorsCheckbox.TabIndex = 0;
-            this.TwoOfThreeDoorsCheckbox.Text = "2(3) Врати";
-            this.TwoOfThreeDoorsCheckbox.UseVisualStyleBackColor = false;
+            this.TwoOrThreeDoorsCheckbox.AutoSize = true;
+            this.TwoOrThreeDoorsCheckbox.BackColor = System.Drawing.Color.Transparent;
+            this.TwoOrThreeDoorsCheckbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TwoOrThreeDoorsCheckbox.ForeColor = System.Drawing.SystemColors.Window;
+            this.TwoOrThreeDoorsCheckbox.Location = new System.Drawing.Point(16, 31);
+            this.TwoOrThreeDoorsCheckbox.Name = "TwoOrThreeDoorsCheckbox";
+            this.TwoOrThreeDoorsCheckbox.Size = new System.Drawing.Size(77, 17);
+            this.TwoOrThreeDoorsCheckbox.TabIndex = 0;
+            this.TwoOrThreeDoorsCheckbox.Text = "2(3) Врати";
+            this.TwoOrThreeDoorsCheckbox.UseVisualStyleBackColor = false;
             // 
             // ShuttleCheckbox
             // 
@@ -1373,30 +1356,30 @@
             this.ShuttleCheckbox.Text = "Шибедах";
             this.ShuttleCheckbox.UseVisualStyleBackColor = false;
             // 
-            // groupBox4
+            // SafetyExtrasGroupbox
             // 
-            this.groupBox4.Controls.Add(this.DSACheckbox);
-            this.groupBox4.Controls.Add(this.DistronicCheckbox);
-            this.groupBox4.Controls.Add(this.DryBrakeSysCheckbox);
-            this.groupBox4.Controls.Add(this.BrakeAssistCheckbox);
-            this.groupBox4.Controls.Add(this.ASRCheckbox);
-            this.groupBox4.Controls.Add(this.ISOFIXCheckbox);
-            this.groupBox4.Controls.Add(this.SmartTireCheckbox);
-            this.groupBox4.Controls.Add(this.ParktronicCheckbox);
-            this.groupBox4.Controls.Add(this.ESPCheckbox);
-            this.groupBox4.Controls.Add(this.AigBagSysCheckbox);
-            this.groupBox4.Controls.Add(this.ABSCheckbox);
-            this.groupBox4.Controls.Add(this.ASCCheckbox);
-            this.groupBox4.Controls.Add(this.AdaptiveFrontLightsCheckbox);
-            this.groupBox4.Controls.Add(this.GPSCheckbox);
-            this.groupBox4.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.ForeColor = System.Drawing.SystemColors.Window;
-            this.groupBox4.Location = new System.Drawing.Point(1057, 200);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(293, 344);
-            this.groupBox4.TabIndex = 16;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "SAFETY";
+            this.SafetyExtrasGroupbox.Controls.Add(this.DSACheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.DistronicCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.DryBrakeSysCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.BrakeAssistCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ASRCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ISOFIXCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.SmartTireCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ParktronicCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ESPCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.AigBagSysCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ABSCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.ASCCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.AdaptiveFrontLightsCheckbox);
+            this.SafetyExtrasGroupbox.Controls.Add(this.GPSCheckbox);
+            this.SafetyExtrasGroupbox.Font = new System.Drawing.Font("Century Gothic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SafetyExtrasGroupbox.ForeColor = System.Drawing.SystemColors.Window;
+            this.SafetyExtrasGroupbox.Location = new System.Drawing.Point(1057, 200);
+            this.SafetyExtrasGroupbox.Name = "SafetyExtrasGroupbox";
+            this.SafetyExtrasGroupbox.Size = new System.Drawing.Size(293, 344);
+            this.SafetyExtrasGroupbox.TabIndex = 16;
+            this.SafetyExtrasGroupbox.TabStop = false;
+            this.SafetyExtrasGroupbox.Text = "SAFETY";
             // 
             // DSACheckbox
             // 
@@ -1586,10 +1569,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1362, 679);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.ComfortGroupBox);
+            this.Controls.Add(this.SafetyExtrasGroupbox);
+            this.Controls.Add(this.ExteriorExtrasGroupbox);
+            this.Controls.Add(this.OthersExtrasGroupBox);
+            this.Controls.Add(this.ComfortExtrasGroupBox);
             this.Controls.Add(this.ResetProfitLabelButton);
             this.Controls.Add(this.ProfitLabel);
             this.Controls.Add(this.WinTextBox);
@@ -1599,7 +1582,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ContractNumberLabel);
             this.Controls.Add(this.additionalCarInfoTextBox);
-            this.Controls.Add(this.clearSoldCarsButton);
             this.Controls.Add(this.soldButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.label1);
@@ -1636,14 +1618,14 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DielershipUI_FormClosed);
             this.Load += new System.EventHandler(this.DielershipUI_Load);
-            this.ComfortGroupBox.ResumeLayout(false);
-            this.ComfortGroupBox.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.ComfortExtrasGroupBox.ResumeLayout(false);
+            this.ComfortExtrasGroupBox.PerformLayout();
+            this.OthersExtrasGroupBox.ResumeLayout(false);
+            this.OthersExtrasGroupBox.PerformLayout();
+            this.ExteriorExtrasGroupbox.ResumeLayout(false);
+            this.ExteriorExtrasGroupbox.PerformLayout();
+            this.SafetyExtrasGroupbox.ResumeLayout(false);
+            this.SafetyExtrasGroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1676,7 +1658,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button soldButton;
-        private System.Windows.Forms.Button clearSoldCarsButton;
         private System.Windows.Forms.TextBox additionalCarInfoTextBox;
         private System.Windows.Forms.Label ContractNumberLabel;
         private System.Windows.Forms.Label label2;
@@ -1686,7 +1667,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label ProfitLabel;
         private System.Windows.Forms.Button ResetProfitLabelButton;
-        private System.Windows.Forms.GroupBox ComfortGroupBox;
+        private System.Windows.Forms.GroupBox ComfortExtrasGroupBox;
         private System.Windows.Forms.CheckBox HeatingSysCheckbox;
         private System.Windows.Forms.CheckBox CoolingGloveboxCheckbox;
         private System.Windows.Forms.CheckBox DPFFilterCheckbox;
@@ -1717,7 +1698,7 @@
         private System.Windows.Forms.CheckBox DvdTvCheckbox;
         private System.Windows.Forms.CheckBox BluetoothHFCheckbox;
         private System.Windows.Forms.CheckBox AutoStartStopCheckBox;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox OthersExtrasGroupBox;
         private System.Windows.Forms.CheckBox LeasingCheckbox;
         private System.Windows.Forms.CheckBox MethanSysCheckbox;
         private System.Windows.Forms.CheckBox NewImportCheckbox;
@@ -1729,9 +1710,9 @@
         private System.Windows.Forms.CheckBox RegisteredCheckbox;
         private System.Windows.Forms.CheckBox BarterCheckbox;
         private System.Windows.Forms.CheckBox FourWheelDriveCheckbox;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox ExteriorExtrasGroupbox;
         private System.Windows.Forms.CheckBox MetallicCheckbox;
-        private System.Windows.Forms.CheckBox FourOfFiveDoorsCheckbox;
+        private System.Windows.Forms.CheckBox FourOrFiveDoorsCheckbox;
         private System.Windows.Forms.CheckBox HeatingWipesCheckbox;
         private System.Windows.Forms.CheckBox XenonHeadlightsCheckbox;
         private System.Windows.Forms.CheckBox SpoilerCheckbox;
@@ -1740,9 +1721,9 @@
         private System.Windows.Forms.CheckBox LedHeadlightsCheckbox;
         private System.Windows.Forms.CheckBox DrawbarCheckbox;
         private System.Windows.Forms.CheckBox HalogenLightsCheckbox;
-        private System.Windows.Forms.CheckBox TwoOfThreeDoorsCheckbox;
+        private System.Windows.Forms.CheckBox TwoOrThreeDoorsCheckbox;
         private System.Windows.Forms.CheckBox ShuttleCheckbox;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox SafetyExtrasGroupbox;
         private System.Windows.Forms.CheckBox DSACheckbox;
         private System.Windows.Forms.CheckBox DistronicCheckbox;
         private System.Windows.Forms.CheckBox DryBrakeSysCheckbox;
@@ -1757,7 +1738,7 @@
         private System.Windows.Forms.CheckBox ASCCheckbox;
         private System.Windows.Forms.CheckBox AdaptiveFrontLightsCheckbox;
         private System.Windows.Forms.CheckBox GPSCheckbox;
-        private System.Windows.Forms.CheckBox inStockCheckbox;
+        private System.Windows.Forms.CheckBox InStockCheckbox;
     }
 }
 

@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace DielershipLibrary
 {
@@ -24,36 +23,37 @@ namespace DielershipLibrary
         private string _price = string.Empty;
         private string _engineVolumeCc = string.Empty;
         private string _win = string.Empty;
-        private string _autoStartStop = string.Empty;
-        private string _bluetoothHf = string.Empty;
-        private string _dvdTv = string.Empty;
-        private string _steptronicTiptronic = string.Empty;
-        private string _usbAudioVideoAux = string.Empty;
-        private string _adaptiveSusp = string.Empty;
-        private string _keylessGo = string.Empty;
-        private string _differentialLock = string.Empty;
-        private string _ecu = string.Empty;
-        private string _elMirrors = string.Empty;
-        private string _elWindows = string.Empty;
-        private string _elAdjustmentSusp = string.Empty;
-        private string _dpfFilter = string.Empty;
-        private string _coolingGlovebox = string.Empty;
-        private string _stereo = string.Empty;
-        private string _elAdjustmentSeats = string.Empty;
-        private string _elSteerAmplifier = string.Empty;
-        private string _airConditioning = string.Empty;
-        private string _climatronic = string.Empty;
-        private string _multifuntionSteer = string.Empty;
-        private string _navigation = string.Empty;
-        private string _steeringHeater = string.Empty;
-        private string _frontWindowHeating = string.Empty;
-        private string _autopilot = string.Empty;
-        private string _seatsHeating = string.Empty;
-        private string _rainSensor = string.Empty;
-        private string _steeringAdjustment = string.Empty;
-        private string _servoSteerAmplifier = string.Empty;
-        private string _headlightWash = string.Empty;
-        private string _heatingSys = string.Empty;
+        private string _autoStartStop = "Auto Start Stop function";
+        private string _bluetoothHf = "Bluetooth , handsfree система";
+        private string _dvdTv = "DVD, TV";
+        private string _steptronicTiptronic = "Steptronic, Tiptronic";
+        private string _usbAudioVideoAux = "USB, audio, video, IN AUX изводи";
+        private string _adaptiveSusp = "Адаптивно въздушно окачване";
+        private string _keylessGo = "Безключово палене";
+        private string _differentialLock = "Блокаж на диференциала";
+        private string _ecu = "Бордкомпютър";
+        private string _elMirrors = "Ел. Огледала";
+        private string _elWindows = "Ел. Стъкла";
+        private string _elAdjustmentSusp = "Ел. регулиране на окачването";
+        private string _elAdjustmentSeats = "Ел. регулиране на седалките";
+        private string _elSteerAmplifier = "Ел. усилвател на волана";
+        private string _airConditioning = "Климатик";
+        private string _climatronic = "Климатроник";
+        private string _multifuntionSteer = "Мултифункционален волан";
+        private string _navigation = "Навигация";
+        private string _steeringHeater = "Отопление на волана";
+        private string _heatingSys = "Печка";
+        private string _frontWindowHeating = "Подгряване на предното стъкло";
+        private string _seatsHeating = "Подгряване на седалките";
+        private string _steeringAdjustment = "Регулиране на волана";
+        private string _rainSensor = "Сензор за дъжд";
+        private string _servoSteerAmplifier = "Серво усилвател на волана";
+        private string _headlightWash = "Система за измиване на фаровете";
+        private string _autopilot = "Автопилот";
+        private string _stereo = "Стерео уредба";
+        private string _dpfFilter = "Филтър за твърди частици";
+        private string _coolingGlovebox = "Хладилна жабка";
+        private string _extras = string.Empty;
 
         public string AutoStartStop
         {
@@ -385,6 +385,18 @@ namespace DielershipLibrary
                 _heatingSys = value;
             }
         }
+        public string Extras
+        {
+            get
+            {
+                return _extras;
+            }
+
+            set
+            {
+                _extras = value;
+            }
+        }
 
         [System.Xml.Serialization.XmlElement("Brand")]
         public string Brand
@@ -608,6 +620,8 @@ namespace DielershipLibrary
                 _win = value;
             }
         }
+       
+        
 
         public Car()
         {
@@ -657,6 +671,7 @@ namespace DielershipLibrary
                 return string.Format("#{0}      {1} {2} {3}", ContractNumber, Brand, Model, ProductionDate);
             }
         }
+
 
         public static string FirstLetterToUpperCaseOrConvertNullToEmptyString(string value)
         {

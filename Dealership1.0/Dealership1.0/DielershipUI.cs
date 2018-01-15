@@ -1,70 +1,63 @@
-﻿using DielershipLibrary;
-using DielershipLibrary.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using Dealership1._0.Properties;
-using System.Xml;
-using System.Xml.Linq;
-
-namespace Dealership1._0
+﻿namespace Dealership1._0
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Linq;
+    using System.Windows.Forms;
+    using DielershipLibrary.Contracts;
+    using DielershipLibrary;
+    using Properties;
+    using System.Text;
+
+    /// <summary>
+    /// Dielership Main
+    /// </summary>
     public partial class DielershipUI : Form, IClearTextboxes
     {
-        private Dieler dieler = new Dieler();
+        //private Dieler dieler = new Dieler();
         private List<Car> soldCarsList = new List<Car>();
-        BindingSource carsBinding = new BindingSource();
-        BindingSource soldCarsBinding = new BindingSource();
+        private BindingSource carsBinding = new BindingSource();
+        private BindingSource soldCarsBinding = new BindingSource();
         private int contractNumber;
 
         public DielershipUI()
         {
-            InitializeComponent();
-            SetupData();
+            this.InitializeComponent();
+            this.SetupData();
 
-            //carsBinding.DataSource = dieler.CarsList.Where(x => x.IsSold == false).ToList();
-            carsBinding.DataSource = XMLDatabase.LoadXMLDatabase().Where(x => x.IsSold == false).ToList();
+            ////carsBinding.DataSource = dieler.CarsList.Where(x => x.IsSold == false).ToList();
+            this.carsBinding.DataSource = XMLDatabase.Load().Where(x => x.IsSold == false).ToList();
 
-            carsListBox.DataSource = carsBinding;
+            carsListBox.DataSource = this.carsBinding;
 
             carsListBox.DisplayMember = "Display";
             carsListBox.ValueMember = "Display";
 
-            soldCarsBinding.DataSource = soldCarsList;
-            soldCarsListBox.DataSource = soldCarsBinding;
+            this.soldCarsBinding.DataSource = this.soldCarsList;
+            this.soldCarsListBox.DataSource = this.soldCarsBinding;
 
             soldCarsListBox.DisplayMember = "Display";
             soldCarsListBox.ValueMember = "Display";
 
             MenuStrip menuStrip = new MenuStrip();
-
-
-
         }
-        // setupData empty
+        //// setupData empty
         private void SetupData()
         {
-
-
-
 
         }
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            //create new car and add to carsList
             if (brandTextBox.ReadOnly == true)
             {
-                TextboxesReadOnlyOrNot(false);
-                ClearTextboxes();
+                this.TextboxesReadOnlyOrNot(false);
+                this.ClearTextboxes();
                 carsListBox.ClearSelected();
                 return;
             }
+
             if (string.IsNullOrEmpty(brandTextBox.Text) && string.IsNullOrEmpty(modelTextBox.Text))
             {
                 MessageBox.Show("Brand and model are mandatory !");
@@ -72,8 +65,8 @@ namespace Dealership1._0
                 return;
             }
 
-            var Id = nextContractNumber();
-            Car newCar = new Car(Id);
+            var id = this.NextContractNumber();
+            Car newCar = new Car(id);
             newCar.Brand = brandTextBox.Text;
             newCar.Model = modelTextBox.Text;
             newCar.BodyworkType = typeTextBox.Text;
@@ -83,21 +76,19 @@ namespace Dealership1._0
             newCar.Color = colorTextBox.Text;
             newCar.ProductionDate = productionDateTextBox.Text;
             newCar.Mileage = mileageTextBox.Text;
-            newCar.Price = priceTextBox.Text + " $";
+            newCar.Price = priceTextBox.Text;
             newCar.AdditionalInfo = additionalCarInfoTextBox.Text;
             newCar.Win = WinTextBox.Text;
-            AddCheckedExtrasToCarProps(newCar);
+            this.AddExtrasToCarExtrasFieldIfChecked(newCar);
 
-            ClearTextboxes();
-            carsBinding.ResetBindings(false);
+            this.ClearTextboxes();
+            this.carsBinding.ResetBindings(false);
             soldCarsListBox.ClearSelected();
 
-            XMLDatabase.AppednToXML(newCar); // works fine
+            XMLDatabase.AppendDataToXML(newCar); // works fine
 
-            //carsBinding.DataSource = Car.LoadXMLDatabase().Where(x => x.IsSold == false).ToList();
-            carsBinding.DataSource = XMLDatabase.LoadXMLDatabase().Where(x => x.IsSold == false).ToList();
-            UncheckCheckboxes();
-
+            this.carsBinding.DataSource = XMLDatabase.Load().Where(x => x.IsSold == false).ToList();
+            this.UncheckCheckboxes();
         }
 
         private void UncheckCheckboxes()
@@ -133,179 +124,336 @@ namespace Dealership1._0
             HeadlightsWashCheckbox.Checked = false;
             HeatingSysCheckbox.Checked = false;
         }
-        //private void DeserializeXMLDatabase()
-        //{
-        //    if (!File.Exists("data.xml"))
-        //    {
-        //        XmlSerializer xSerializer = new XmlSerializer(typeof(Car));
-        //        using (FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
-        //        {
-        //            Car xmlCar = (Car)xSerializer.Deserialize(read);
-        //            dieler.CarsList.Add(xmlCar);
-        //        }
-        //    }
 
-        //}
+        ////private void DeserializeXMLDatabase()
+        ////{
+        ////    if (!File.Exists("data.xml"))
+        ////    {
+        ////        XmlSerializer xSerializer = new XmlSerializer(typeof(Car));
+        ////        using (FileStream read = new FileStream("data.xml", FileMode.Open, FileAccess.Read, FileShare.Read))
+        ////        {
+        ////            Car xmlCar = (Car)xSerializer.Deserialize(read);
+        ////            dieler.CarsList.Add(xmlCar);
+        ////        }
+        ////    }
+        //
+        ////}
+
         private void soldButton_Click(object sender, EventArgs e)
         {
             // find selected item
             // copy item to soldCarsList
             // erase from carsList
-            DialogResult dialogResult = MessageBox.Show("Are you sure ?", "Check", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (carsListBox.SelectedItem != null)
             {
-                Car selectedCar = (Car)carsListBox.SelectedItem;
-                var selectedCarPrice = Int32.Parse(selectedCar.Price);
-                Settings.Default.MonthlyProfit += selectedCarPrice;
+                DialogResult dialogResult = MessageBox.Show("Are you sure ?", "Check", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Car selectedCar = (Car)carsListBox.SelectedItem;
+                    var selectedCarPrice = int.Parse(selectedCar.Price);
+                    Settings.Default.MonthlyProfit += selectedCarPrice;
+                    Settings.Default.Save();
 
-                Settings.Default.Save();
-                XMLDatabase.Remove(carsListBox.SelectedItem);
-                soldCarsList.Add(selectedCar);
-                soldCarsBinding.ResetBindings(false);
+                    XMLDatabase.Remove(carsListBox.SelectedItem);
+                    this.soldCarsList.Add(selectedCar);
+                    this.soldCarsBinding.ResetBindings(false);
 
-                carsBinding.DataSource = XMLDatabase.LoadXMLDatabase().Where(x => x.IsSold == false).ToList();
+                    this.carsBinding.DataSource = XMLDatabase.Load().Where(x => x.IsSold == false).ToList();
 
-                carsListBox.ClearSelected();
-                soldCarsListBox.ClearSelected();
+                    carsListBox.ClearSelected();
+                    soldCarsListBox.ClearSelected();
 
-                ProfitLabel.Text = Settings.Default.MonthlyProfit.ToString() + "$";
-
+                    ProfitLabel.Text = Settings.Default.MonthlyProfit.ToString() + "$";
+                }
+                else
+                {
+                    return;
+                }
             }
-            else if (dialogResult == DialogResult.No)
-            {
-                return;
-            }
-
-
         }
-        private void AddCheckedExtrasToCarProps(Car car)
+
+        private void AddExtrasToCarExtrasFieldIfChecked(Car car)
         {
-            if (this.AutoStartStopCheckBox.Checked)
+            var tempBuilder = new StringBuilder();
+            List<CheckBox> checkList = new List<CheckBox>();
+            checkList.Add(AlluminRimsCheckbox);
+            checkList.Add(BrakeAssistCheckbox);
+            checkList.Add(BluetoothHFCheckbox);
+            checkList.Add(BarterCheckbox);
+            checkList.Add(AutoStartStopCheckBox);
+            checkList.Add(AutopilotCheckbox);
+            checkList.Add(AutoGasSysCheckbox);
+            checkList.Add(ASRCheckbox);
+            checkList.Add(ASCCheckbox);
+            checkList.Add(AirConditioningCheckbox);
+            checkList.Add(AigBagSysCheckbox);
+            checkList.Add(AdaptiveAirSuspCheckbox);
+            checkList.Add(HeatingSysCheckbox);
+            checkList.Add(CoolingGloveboxCheckbox);
+            checkList.Add(DPFFilterCheckbox);
+            checkList.Add(StereoCheckbox);
+            checkList.Add(HeadlightsWashCheckbox);
+            checkList.Add(ServoSteerAmplifierCheckbox);
+            checkList.Add(SteeringAdjustmentCheckbox);
+            checkList.Add(SeatsHeatingCheckbox);
+            checkList.Add(RainSensorCheckbox);
+            checkList.Add(FrontWindowHeatingCheckbox);
+            checkList.Add(NavigationCheckbox);
+            checkList.Add(SteeringHeaterCheckbox);
+            checkList.Add(MultifunctionSteerCheckbox);
+            checkList.Add(ClimatronicCheckbox);
+            checkList.Add(ElSteerAmplifierCheckbox);
+            checkList.Add(ElAdjustmentSeatsCheckbox);
+            checkList.Add(ElAdjustmentSuspCheckbox);
+            checkList.Add(ElMirrorsCheckbox);
+            checkList.Add(ElWindowsCheckbox);
+            checkList.Add(ECUCheckbox);
+            checkList.Add(DifferentialLockCheckbox);
+            checkList.Add(KeylessGoCheckbox);
+            checkList.Add(USBAudioVideoAUXCheckbox);
+            checkList.Add(SteptronicTiptronicCheckbox);
+            checkList.Add(DvdTvCheckbox);
+            checkList.Add(InStockCheckbox);
+            checkList.Add(LeasingCheckbox);
+            checkList.Add(MethanSysCheckbox);
+            checkList.Add(NewImportCheckbox);
+            checkList.Add(SevenSeatsCheckbox);
+            checkList.Add(ServiceBookCheckbox);
+            checkList.Add(TuningCheckbox);
+            checkList.Add(FullServicedCheckbox);
+            checkList.Add(RegisteredCheckbox);
+            checkList.Add(FourWheelDriveCheckbox);
+            checkList.Add(MetallicCheckbox);
+            checkList.Add(FourOrFiveDoorsCheckbox);
+            checkList.Add(HeatingWipesCheckbox);
+            checkList.Add(XenonHeadlightsCheckbox);
+            checkList.Add(SpoilerCheckbox);
+            checkList.Add(PanoramicHatchCheckbox);
+            checkList.Add(LedHeadlightsCheckbox);
+            checkList.Add(DrawbarCheckbox);
+            checkList.Add(DSACheckbox);
+            checkList.Add(DistronicCheckbox);
+            checkList.Add(DryBrakeSysCheckbox);
+            checkList.Add(ISOFIXCheckbox);
+            checkList.Add(SmartTireCheckbox);
+            checkList.Add(ParktronicCheckbox);
+            checkList.Add(ESPCheckbox);
+            checkList.Add(ABSCheckbox);
+            checkList.Add(AdaptiveFrontLightsCheckbox);
+            checkList.Add(GPSCheckbox);
+            checkList.Add(TwoOrThreeDoorsCheckbox);
+            checkList.Add(HalogenLightsCheckbox);
+            checkList.Add(ShuttleCheckbox);
+
+
+            foreach (var box in checkList)
             {
-                car.AutoStartStop = "Auto start stop function";
-            }
-            if (this.BluetoothHFCheckbox.Checked)
-            {
-                car.BluetoothHF = "Bluetooth , handsfree система";
-            }
-            if (this.DvdTvCheckbox.Checked)
-            {
-                car.DvdTv = "DVD, TV";
-            }
-            if (this.SteptronicTiptronicCheckbox.Checked)
-            {
-                car.SteptronicTiptronic = "Steptronic, Tiptronic";
-            }
-            if (this.USBAudioVideoAUXCheckbox.Checked)
-            {
-                car.USBAudioVideoAUX = "USB, audio video, IN AUX изводи";
-            }
-            if (this.AdaptiveAirSuspCheckbox.Checked)
-            {
-                car.AdaptiveAirSusp = "Адаптивно въздушно окачване";
-            }
-            if (this.KeylessGoCheckbox.Checked)
-            {
-                car.KeylessGo = "Безключово палене";
-            }
-            if (this.DifferentialLockCheckbox.Checked)
-            {
-                car.DifferentialLock = "Блокаж на диференциала";
-            }
-            if (this.ECUCheckbox.Checked)
-            {
-                car.ECU = "Бордкомпютър";
-            }
-            if (this.ElMirrorsCheckbox.Checked)
-            {
-                car.ElMirrors = "Ел. Огледала";
-            }
-            if (this.ElWindowsCheckbox.Checked)
-            {
-                car.ElWindows = "Ел. стъкла";
-            }
-            if (this.ElAdjustmentSuspCheckbox.Checked)
-            {
-                car.ElAdjustmentSusp = "Ел. регулиране на окачването";
-            }
-            if (this.DPFFilterCheckbox.Checked)
-            {
-                car.DPFFilter = "Филтър за твърди частици";
-            }
-            if (this.CoolingGloveboxCheckbox.Checked)
-            {
-                car.CoolingGlovebox = "Хладилна жабка";
-            }
-            if (this.StereoCheckbox.Checked)
-            {
-                car.Stereo = "Стерео уредба";
-            }
-            if (this.ElAdjustmentSeatsCheckbox.Checked)
-            {
-                car.ElAdjustmentSeats = "Ел. регулиране на седалките";
-            }
-            if (this.ElSteerAmplifierCheckbox.Checked)
-            {
-                car.ElSteerAmplifier = "Ел. усилвател на волана";
-            }
-            if (this.AirConditioningCheckbox.Checked)
-            {
-                car.AirConditioning = "Климатик";
-            }
-            if (this.ClimatronicCheckbox.Checked)
-            {
-                car.Climatronic = "Климатроник";
-            }
-            if (this.MultifunctionSteerCheckbox.Checked)
-            {
-                car.MultifunctionSteer = "Мултифункционален волан";
-            }
-            if (this.NavigationCheckbox.Checked)
-            {
-                car.Navigation = "Навигация";
-            }
-            if (this.SteeringHeaterCheckbox.Checked)
-            {
-                car.SteeringHeater = "Отопление на волана";
-            }
-            if (this.FrontWindowHeatingCheckbox.Checked)
-            {
-                car.FrontWindowHeating = "Подгряване на предното стъкло";
-            }
-            if (this.AutopilotCheckbox.Checked)
-            {
-                car.Autopilot = "Автопилот";
-            }
-            if (this.SeatsHeatingCheckbox.Checked)
-            {
-                car.SeatsHeating = "Подгряване на седалките";
-            }
-            if (this.RainSensorCheckbox.Checked)
-            {
-                car.RainSensor = "Сензор за дъжд";
-            }
-            if (this.SteeringAdjustmentCheckbox.Checked)
-            {
-                car.SteeringAdjustment = "Регулиране на волана";
-            }
-            if (this.ServoSteerAmplifierCheckbox.Checked)
-            {
-                car.ServoSteerAmplifier = "Серво усилвател на волана";
-            }
-            if (this.HeadlightsWashCheckbox.Checked)
-            {
-                car.HeadlightsWash = "Система за измиване на фаровете";
-            }
-            if (this.HeatingSysCheckbox.Checked)
-            {
-                car.HeatingSys = "Печка";
+                if (box.Checked)
+                {
+                    tempBuilder.Append(box.Text + "$");
+                }
             }
 
+            car.Extras += tempBuilder.ToString();
+            ////if (this.AutoStartStopCheckBox.Checked)
+            ////{
+            ////    tempBuilder.Append("Auto start stop function" + "$");
+            ////    //car.Extras += "Auto start stop function";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.BluetoothHFCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Bluetooth , handsfree система" + "$");
+            ////    //car.Extras += "Bluetooth , handsfree система";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.DvdTvCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("DVD, TV" + "$");
+            ////    //car.Extras += "DVD, TV";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.SteptronicTiptronicCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Steptronic, Tiptronic" + "$");
+            ////    //car.Extras += "Steptronic, Tiptronic";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.USBAudioVideoAUXCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("USB, audio video, IN AUX изводи" + "$");
+            ////    //car.Extras += "USB, audio video, IN AUX изводи";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.AdaptiveAirSuspCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Адаптивно въздушно окачване" + "$");
+            ////    //car.Extras += "Адаптивно въздушно окачване";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.KeylessGoCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Безключово палене" + "$");
+            ////    //car.Extras += "Безключово палене";
+            ////    //car.Extras += "$";
+
+            ////}
+
+            ////if (this.DifferentialLockCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Блокаж на диференциала" + "$");
+            ////    //car.Extras += "Блокаж на диференциала";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.ECUCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Бордкомпютър" + "$");
+            ////    //car.Extras += "Бордкомпютър";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.ElMirrorsCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Ел. Огледала" + "$");
+            ////    //car.Extras += "Ел. Огледала";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.ElWindowsCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Ел.стъкла" + "$");
+            ////    //car.Extras += "Ел.стъкла";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.ElAdjustmentSuspCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Ел. регулиране на окачването" + "$");
+            ////    //car.Extras += "Ел. регулиране на окачването";
+            ////    //car.Extras += "$";
+            ////}
+
+            ////if (this.DPFFilterCheckbox.Checked)
+            ////{
+            ////    tempBuilder.Append("Филтър за твърди частици" + "$");
+            ////    car.Extras += "Филтър за твърди частици";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.CoolingGloveboxCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Хладилна жабка";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.StereoCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Стерео уредба";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.ElAdjustmentSeatsCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Ел. регулиране на седалките";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.ElSteerAmplifierCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Ел. усилвател на волана";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.AirConditioningCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Климатик";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.ClimatronicCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Климатроник";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.MultifunctionSteerCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Мултифункционален волан";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.NavigationCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Навигация";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.SteeringHeaterCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Отопление на волана";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.FrontWindowHeatingCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Подгряване на предното стъкло";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.AutopilotCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Автопилот";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.SeatsHeatingCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Подгряване на седалките";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.RainSensorCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Сензор за дъжд";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.SteeringAdjustmentCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Регулиране на волана";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.ServoSteerAmplifierCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Серво усилвател на волана";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.HeadlightsWashCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Система за измиване на фаровете";
+            ////    car.Extras += "$";
+            ////}
+
+            ////if (this.HeatingSysCheckbox.Checked)
+            ////{
+            ////    car.Extras += "Печка";
+            ////    car.Extras += "$";
+            ////}
         }
+
         private void clearSoldCarsButton_Click(object sender, EventArgs e)
         {
-            //mark item as sold 
-            //clear soldCarsList
+            ////mark item as sold 
+            ////clear soldCarsList
 
             foreach (var item in soldCarsList)
             {
@@ -313,33 +461,47 @@ namespace Dealership1._0
                 {
                     return;
                 }
+
                 item.IsSold = true;
             }
 
-            soldCarsList.Clear();
-            carsBinding.DataSource = dieler.CarsList.Where(x => x.IsSold == false).ToList();
+            this.soldCarsList.Clear();
+            //this.carsBinding.DataSource = this.dieler.CarsList.Where(x => x.IsSold == false).ToList();
 
-            soldCarsBinding.ResetBindings(false);
-            carsBinding.ResetBindings(false);
+            this.soldCarsBinding.ResetBindings(false);
+            this.carsBinding.ResetBindings(false);
         }
 
-        public void ClearTextboxes()// WORKS FINE
+        public void ClearTextboxes() // WORKS FINE
         {
             brandTextBox.Clear();
+
             modelTextBox.Clear();
+
             typeTextBox.Clear();
+
             EngineVolumeCCTextBox.Clear();
+
             horsePowerTextBox.Clear();
+
             fuelTypeTextBox.Clear();
+
             colorTextBox.Clear();
+
             productionDateTextBox.Clear();
+
             mileageTextBox.Clear();
+
             additionalCarInfoTextBox.Clear();
+
             priceTextBox.Clear();
+
             WinTextBox.Clear();
+
             ContractNumberLabel.Text = "#---";
         }
-        public void TextboxesReadOnlyOrNot(bool condition) //WORKS FINE
+
+        public void TextboxesReadOnlyOrNot(bool condition) //// out of date
         {
             brandTextBox.ReadOnly = condition;
             modelTextBox.ReadOnly = condition;
@@ -354,26 +516,8 @@ namespace Dealership1._0
             EngineVolumeCCTextBox.ReadOnly = condition;
             WinTextBox.ReadOnly = condition;
         }
-        public void FillTextBoxesWithSelectedCarParameters(ListBox listBox) //WORKS FINE
-        {
-            Car selectedCar = (Car)listBox.SelectedItem;
 
-            ContractNumberLabel.Text = string.Format("#{0}", selectedCar.ContractNumber.ToString());
-            brandTextBox.Text = selectedCar.Brand;
-            modelTextBox.Text = selectedCar.Model;
-            typeTextBox.Text = selectedCar.BodyworkType;
-            EngineVolumeCCTextBox.Text = selectedCar.EngineVolumeCc;
-            horsePowerTextBox.Text = selectedCar.HorsePower.ToString();
-            fuelTypeTextBox.Text = selectedCar.FuelType;
-            colorTextBox.Text = selectedCar.Color;
-            productionDateTextBox.Text = selectedCar.ProductionDate;
-            mileageTextBox.Text = selectedCar.Mileage.ToString();
-            additionalCarInfoTextBox.Text = selectedCar.AdditionalInfo;
-            priceTextBox.Text = selectedCar.Price;
-            WinTextBox.Text = selectedCar.Win;
-
-        }
-        public int nextContractNumber()
+        private int NextContractNumber()
         {
             int result = int.Parse(Settings.Default["NumOfContracts"].ToString());
             Settings.Default["NumOfContracts"] = result + 1;
@@ -381,79 +525,63 @@ namespace Dealership1._0
             return ++result;
         }
 
-        private void ShowInfo(object sender, EventArgs e) //WORKS FINE
+
+
+        private void carsListBox_DoubleClick(object sender, EventArgs e) //// WORK FINE
         {
-            ///clear  text boxes
-            //show selected car info in texboxes
-            ClearTextboxes();
-            Car selectedCar = (Car)carsListBox.SelectedItem;
-            if (selectedCar == null)
+            if (carsListBox.Items.Count > 0 && carsListBox.SelectedItem != null)
             {
-                selectedCar = (Car)soldCarsListBox.SelectedItem;
-                if (selectedCar == null)
-                {
-                    MessageBox.Show("Select item from the list!");
-                    return;
-                }
-                FillTextBoxesWithSelectedCarParameters(soldCarsListBox);
+                InfoForm infoForm = new InfoForm();
 
-                TextboxesReadOnlyOrNot(true);
+                infoForm.FillInfoFormTextbox(carsListBox.SelectedItem);
+                
+                infoForm.Show();
 
-                return;
+                ////soldCarsListBox.ClearSelected();
             }
-
-            FillTextBoxesWithSelectedCarParameters(carsListBox);
-
-            TextboxesReadOnlyOrNot(true);
         }
 
-        private void carsListBox_DoubleClick(object sender, EventArgs e)// WORK FINE
+        private void soldCarsListBox_DoubleClick(object sender, EventArgs e) ////WORKS FINE
         {
-            if (carsListBox.Items.Count > 0)
+            if (soldCarsListBox.Items.Count > 0 && soldCarsListBox.SelectedItem != null)
             {
-                ClearTextboxes();
-                var selectedIndex = carsListBox.SelectedItem;
-                ShowInfo(selectedIndex, e);
-                soldCarsListBox.ClearSelected();
-            }
-            InfoForm infoForm = new InfoForm();
-            infoForm.FillInfoFormTextbox(carsListBox.SelectedItem);//selectedIndex
-            infoForm.Show();
-            
-
-
-        }
-
-        private void soldCarsListBox_DoubleClick(object sender, EventArgs e)//WORKS FINE
-        {
-            if (soldCarsListBox.Items.Count > 0)
-            {
-                ClearTextboxes();
+                this.ClearTextboxes();
                 var selectedIndex = soldCarsListBox.SelectedItem;
-                ShowInfo(selectedIndex, e);
                 carsListBox.ClearSelected();
             }
         }
 
         private void priceTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
-
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void mileageTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void EngineVolumeCCTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            //e.Handled = !char.IsDigit(e.KeyChar);
         }
 
         private void horsePowerTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar));
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void WinTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -461,23 +589,20 @@ namespace Dealership1._0
             WinTextBox.CharacterCasing = CharacterCasing.Upper;
         }
 
-
-        //empty
         private void DielershipUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-
         }
-
 
         private void DielershipUI_Load(object sender, EventArgs e)
-        {
-            //DeserializeXMLDatabase();
+        {   ////DeserializeXMLDatabase();
             carsListBox.Update();
-            contractNumber = int.Parse(Settings.Default["NumOfContracts"].ToString());
+
+            this.contractNumber = int.Parse(Settings.Default["NumOfContracts"].ToString());
+
             ProfitLabel.Text = Settings.Default.MonthlyProfit.ToString() + " $";
+
             carsListBox.ClearSelected();
         }
-
 
         private void ResetProfitLabelButton_Click(object sender, EventArgs e)
         {
